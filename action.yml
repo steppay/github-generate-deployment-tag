@@ -1,0 +1,10 @@
+name: 'github-generate-deployment-tag'
+description: '배포용 도커이미지 태그명을 생성하는 스크립트입니다.'
+author: 'Jihun Lee'
+branding:
+    icon: 'octicon-name'
+    color: 'blue'
+
+runs:
+    using: 'node16'
+    main: 'dist/bundle.js'
