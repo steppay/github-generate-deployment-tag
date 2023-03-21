@@ -2,11 +2,9 @@ import * as core from '@actions/core'
 
 async function run() {
     try {
-        const { GITHUB_WORKSPACE, GITHUB_SHA, GITHUB_RUN_NUMBER } = process.env
-        const repository = GITHUB_WORKSPACE.split('/').pop()
-        const prefix = core.getInput('prefix') || repository
+        const { GITHUB_SHA, GITHUB_RUN_NUMBER } = process.env
         const slicedSha = GITHUB_SHA.slice(0, 7)
-        const tagName = `${prefix}-${GITHUB_RUN_NUMBER}-${slicedSha}`
+        const tagName = `${GITHUB_RUN_NUMBER}-${slicedSha}`
         core.setOutput('tag', tagName)
     } catch (error) {
         core.setFailed(error.message)
